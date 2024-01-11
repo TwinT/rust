@@ -34,6 +34,8 @@ impl Config {
     }
 }
 
+// Logic
+
 fn solve(input: &str) -> Solution {
     let mut floor: i32 = 0;
     let mut position: usize = 0;
