@@ -27,7 +27,17 @@ mod my_module {
     use super::Command;
 
     // TODO: Complete the function as described above.
-    // pub fn transformer(input: ???) -> ??? { ??? }
+    pub fn transformer(input: &Vec<(String,Command)>) -> String {
+        for (string, cmd) in input.iter() {
+            match cmd {
+                Command::Uppercase => string.to_ascii_uppercase(),
+                Command::Trim => string.trim().to_string(),
+                Command::Append(num) => format!("{string}{"bar".repeat(num)}")
+        }
+
+
+        }
+        
 }
 
 fn main() {

@@ -1,9 +1,16 @@
+use std::cmp::Ordering::{Equal, Greater, Less};
+
 // This function returns how much ice cream there is left in the fridge.
 // If it's before 22:00 (24-hour system), then 5 scoops are left. At 22:00,
 // someone eats it all, so no ice cream is left (value 0). Return `None` if
 // `hour_of_day` is higher than 23.
 fn maybe_ice_cream(hour_of_day: u16) -> Option<u16> {
     // TODO: Complete the function body.
+    match hour_of_day.cmp(&22) {
+        Greater => None,
+        Less => Some(5),
+        Equal => Some(0),
+    }
 }
 
 fn main() {
@@ -18,7 +25,7 @@ mod tests {
     fn raw_value() {
         // TODO: Fix this test. How do you get the value contained in the
         // Option?
-        let ice_creams = maybe_ice_cream(12);
+        let ice_creams = maybe_ice_cream(12).unwrap();
 
         assert_eq!(ice_creams, 5); // Don't change this line.
     }
